@@ -57,9 +57,9 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="{{route('home')}}">Home</a></li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="program.html">latest causes</a></li>
-                                            <li><a href="events.html">social events </a></li>
+                                            <li><a href="{{route('about')}}">About</a></li>
+{{--                                            <li><a href="program.html">latest causes</a></li>--}}
+                                            <li><a href="{{route('event')}}">social events </a></li>
                                             <li><a href="{{route('blog')}}">Blog</a>
                                                 <ul class="submenu">
                                                     <li><a href="blog.html">Blog</a></li>

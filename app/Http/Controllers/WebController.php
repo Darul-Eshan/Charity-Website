@@ -14,4 +14,12 @@ class WebController extends Controller
     {
         return view('home.web-blog');
     }
+    public static function about()
+    {
+        return view('home.web-about');
+    }
+    public static function events()
+    {
+        return view('home.web-event');
+    }
 }
