@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CategoryController;
 
 
 Route::get('/',[WebController::class,'index'])->name('home');
@@ -16,4 +17,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),
 //        return view('dashboard');
 //    })->name('dashboard');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-});
+    Route::get('/category/add',[CategoryController::class,"addCategoryForm"])->name('category.add');
+    Route::get('/category/manage',[CategoryController::class,"manageCategory"])->name('category.manage');
+    Route::post('/category/save',[CategoryController::class,"saveCategory"])->name('category.store');
+    });
