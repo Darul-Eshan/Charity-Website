@@ -193,7 +193,7 @@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link justify-content-between"
-                               href="#">
+                               href="{{route('post.manage')}}">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>

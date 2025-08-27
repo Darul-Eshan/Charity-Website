@@ -5,7 +5,12 @@
             <div class="col-lg-8 col-md-10 col-sm-12">
                 <div class="card shadow p-4 mt-5">
                     <h4 class="text-center mb-4">Create New Blog Post</h4>
-                  <h4>{{session('message')}}</h4>
+
+                    @if(session('massage'))
+                        <div class="alert alert-success">
+                            {{ session('massage') }}
+                        </div>
+                    @endif
 
                     <form id="postForm" action="{{ route('category.store') }}" method="post" enctype="multipart/form-data" class="mb-4">
                         @csrf

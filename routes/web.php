@@ -20,4 +20,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),
     Route::get('/category/add',[CategoryController::class,"addCategoryForm"])->name('category.add');
     Route::get('/category/manage',[CategoryController::class,"manageCategory"])->name('category.manage');
     Route::post('/category/save',[CategoryController::class,"saveCategory"])->name('category.store');
+    Route::get('/post/manage',[CategoryController::class,"managePost"])->name('post.manage');
+    Route::get('/post/status/{id}',[CategoryController::class,"statusPost"])->name('post.status');
+    Route::get('/post/edit/{id}',[CategoryController::class,"editPost"])->name('post.edit');
     });
