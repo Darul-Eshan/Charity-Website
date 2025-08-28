@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BlogsController;
 
 
 Route::get('/',[WebController::class,'index'])->name('home');
@@ -23,4 +24,11 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),
     Route::get('/post/manage',[CategoryController::class,"managePost"])->name('post.manage');
     Route::get('/post/status/{id}',[CategoryController::class,"statusPost"])->name('post.status');
     Route::get('/post/edit/{id}',[CategoryController::class,"editPost"])->name('post.edit');
+    Route::post('/post/update/{id}',[CategoryController::class,"updatePost"])->name('post.update');
+
+    Route::get('/blog/post',[BlogsController::class,'blogPost'])->name('blog.post');
+    Route::post('/blog/post/save',[BlogsController::class,'blogSave'])->name('blog.save');
+
+
+
     });

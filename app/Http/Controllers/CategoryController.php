@@ -36,7 +36,12 @@ class CategoryController extends Controller
     public function editPost($id)
     {
         return view('admin.category.edit-post',[
-            'categories' => Category::find($id)
+            'category' => Category::find($id)
         ]);
+    }
+    public function updatePost(Request $request,$id)
+    {
+        Category::updatePost($request,$id);
+        return redirect(route('post.manage',$id))->with('massage','Post Update Successfully');
     }
 }

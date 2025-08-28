@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use function Symfony\Component\String\s;
 
 class Category extends Model
 {
@@ -42,4 +43,14 @@ public static function saveCategory($request){
     self::$image->move(self::$directory,self::$imageNewName);
     return self::$imgUrl;
 }
+    public static function updatePost($request,$id){
+     self::$category=Category::find($request->id);
+        self:: $category->title = $request->title;
+        self::$category->content= $request->content;
+
+
+            self::$category->image = self::getImgUrl($request);
+
+        self::$category->save();
+    }
 }
