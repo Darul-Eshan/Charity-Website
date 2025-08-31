@@ -6,44 +6,38 @@
                 <div class="card shadow p-4 mt-5">
                     <h4 class="text-center mb-4">Create New Blog Post</h4>
 
-                    @if(session('massage'))
-                        <div class="alert alert-success">
-                            {{ session('massage') }}
-                        </div>
-                    @endif
 
-                    <form id="postForm" action="{{ route('post.update',$category->id) }}" method="post" enctype="multipart/form-data" class="mb-4">
+                    <div class="alert alert-success d-none" id="successMessage">
+                        Post created successfully!
+                    </div>
+
+                    <form id="postForm" action="{{route('blog.update',$blog->id)}}" method="post" enctype="multipart/form-data" class="mb-4">
                         @csrf
-{{--                        <input type="hidden" name="id" value="{{$category->id}}">--}}
                         <div class="mb-3">
                             <label for="title" class="form-label">Post Title</label>
-                            <input type="text" class="form-control" id="title" value="{{$category->title}}" name="title" placeholder="Enter title" >
-                            @error('title')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
+                            <input type="text" class="form-control" id="title" value="{{$blog->title}}" name="title" placeholder="Enter title" required>
+                            <div class="text-danger d-none" id="titleError">Title is required</div>
                         </div>
 
                         <div class="mb-3">
                             <label for="content" class="form-label">Content</label>
-                            <textarea class="form-control" id="content" name="content" rows="4" placeholder="{{$category->content}}" ></textarea>
-
-                            @error('content')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror</div>
+                            <textarea class="form-control" id="content" name="content" rows="4" placeholder="{{$blog->content}}" required></textarea>
+                            <div class="text-danger d-none" id="contentError">Content is required</div>
+                        </div>
 
                         <div class="mb-3">
                             <label for="image" class="form-label">Upload Image</label>
                             <div class="position-relative" style="width: 150px; height: 150px;">
-                                <!-- পুরনো Image দেখাবে -->
+                                <!-- Preview Image -->
                                 <img
                                     id="preview"
-                                    src="{{ asset($category->image) }}"
+                                    src="{{asset($blog->image)}}"
                                     alt="Preview"
                                     class="img-fluid rounded"
                                     style="width: 100%; height: 100%; object-fit: cover; border: 1px solid #ddd;"
                                 >
 
-                                <!-- Input File Box (Transparent overlay করে দিচ্ছি image এর উপরেই) -->
+                                <!-- File Input -->
                                 <input
                                     type="file"
                                     class="form-control position-absolute top-0 start-0 w-100 h-100 opacity-0"
@@ -53,8 +47,9 @@
                                     onchange="previewImage(event)"
                                 >
                             </div>
+                        </div>
 
-                        <div class="text-center">
+                        <div class="text-center mt-3">
                             <button type="submit" class="btn btn-primary me-2">Add Post</button>
                             <button type="reset" class="btn btn-secondary">Clear</button>
                         </div>
@@ -64,5 +59,14 @@
         </div>
     </div>
 
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function(){
+                document.getElementById('preview').src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
 
 @endsection

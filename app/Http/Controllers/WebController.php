@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Blog;
 
 class WebController extends Controller
 {
     public static function index()
     {
-        return view('home.web-home');
+        return view('home.web-home',[
+        'blogs' => Blog::all(),
+        ]);
+
     }
     public static function blog()
     {

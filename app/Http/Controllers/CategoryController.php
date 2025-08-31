@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Blog;
 
 class CategoryController extends Controller
 {
@@ -44,4 +45,14 @@ class CategoryController extends Controller
         Category::updatePost($request,$id);
         return redirect(route('post.manage',$id))->with('massage','Post Update Successfully');
     }
+    public function deletePost(Request $request)
+    {
+        self::$category= Category::find($request->id);
+        if (file_exists(self::$category->image)) {
+            unlink(self::$category->image);
+        }
+        self::$category->delete();
+        return back()->with('massage','Post Delete Successfully');
+    }
+
 }

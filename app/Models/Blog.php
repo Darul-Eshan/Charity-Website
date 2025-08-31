@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Http\Controllers\BlogsController;
+use App\Http\Controllers\WebController;
 
 class Blog extends Model
 {
-    private static $blogs,$imgUrl,$image,$imageNewName,$directory ;
+    private static $blogs,$imgUrl,$image,$imageNewName,$directory,$blog ;
     public static function blogPost($request)
     {
         $request->validate([
@@ -38,6 +40,14 @@ class Blog extends Model
     }
 self::$image->move(self::$directory, self::$imageNewName);
     return self::$imgUrl;
+    }
+    public static function updateBlog($request,$id)
+    {
+      self::$blog = Blog::find($id);
+      self::$blog->title = $request->title;
+      self::$blog->content = $request->content;
+      self::$blog->image = self::getImgUrl($request);
+      self::$blog->save();
 
     }
 }

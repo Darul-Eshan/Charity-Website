@@ -43,13 +43,18 @@ public static function saveCategory($request){
     self::$image->move(self::$directory,self::$imageNewName);
     return self::$imgUrl;
 }
-    public static function updatePost($request,$id){
+    public static function updatePost($request){
      self::$category=Category::find($request->id);
         self:: $category->title = $request->title;
         self::$category->content= $request->content;
-
-
+        if ($request->hasFile('image')) {
+            if (file_exists(self::$category->image)) {
+                unlink(self::$category->image);
+            }
             self::$category->image = self::getImgUrl($request);
+        }
+
+
 
         self::$category->save();
     }
