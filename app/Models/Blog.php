@@ -13,17 +13,22 @@ class Blog extends Model
     {
         $request->validate([
             'title' => 'required|string',
+            'date' => 'required|date',
+            'category_id' => 'required|exists:categories,id',
             'content' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ],
             [
                 'title.required' => 'Please enter the title.',
+                'date.required' => 'Please enter the date.',
                 'content.required' => 'Please enter the content.',
                 'image.required' => 'Please enter the image.',
 
             ]);
         self::$blogs= new Blog();
         self::$blogs->title = $request->title;
+        self::$blogs->date=$request->date;
+        self::$blogs->category_id=$request->category_id;
         self::$blogs->content= $request->content;
         if($request->hasFile('image')){
             self::$blogs->image= self::getImgUrl($request);

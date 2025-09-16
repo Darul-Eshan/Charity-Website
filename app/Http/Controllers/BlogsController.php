@@ -11,7 +11,9 @@ class BlogsController extends Controller
     private static $blog;
     public static function blogPost()
     {
-        return view('admin.blog.blog-post');
+        return view('admin.blog.blog-post',[
+            'categories'=>Category::where('status',1)->get(),
+        ]);
     }
     public function blogSave(Request $request)
     {

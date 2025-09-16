@@ -138,91 +138,28 @@
                     <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
                         <!-- Section Tittle -->
                         <div class="section-tittle text-center mb-80">
-                            <span>Our Cases you can see</span>
-                            <h2>Explore our latest causes that we works </h2>
+                            <span>Our category you can see</span>
+                            <h2>Where We Make an Impact</h2>
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-cases mb-40">
-                            <div class="cases-img">
-                                <img src="{{asset('web-assets')}}/assets/img/gallery/case1.png" alt="">
-                            </div>
-                            <div class="cases-caption">
-                                <h3><a href="#">Ensure Education For Every Poor Children</a></h3>
-                                <!-- Progress Bar -->
-                                <div class="single-skill mb-15">
-                                    <div class="bar-progress">
-                                        <div id="bar1" class="barfiller">
-                                            <div class="tipWrap">
-                                                <span class="tip"></span>
-                                            </div>
-                                            <span class="fill" data-percentage="70"></span>
-                                        </div>
-                                    </div>
+                    @foreach($categories as $category)
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="single-cases mb-40">
+                                <div class="cases-img">
+                                    <img src="{{ asset($category->image) }}" alt="">
                                 </div>
-                                <!-- / progress -->
-                                <div class="prices d-flex justify-content-between">
-                                    <p>Raised:<span> $20,000</span></p>
-                                    <p>Goal:<span> $35,000</span></p>
+                                <div class="cases-caption">
+                                    <h3><a href="#">{{ $category->title }}</a></h3>
+                                    <!-- Progress Bar -->
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-cases mb-40">
-                            <div class="cases-img">
-                                <img src="{{asset('web-assets')}}/assets/img/gallery/case2.png" alt="">
-                            </div>
-                            <div class="cases-caption">
-                                <h3><a href="#">Providing Healthy Food For The Children</a></h3>
-                                <!-- Progress Bar -->
-                                <div class="single-skill mb-15">
-                                    <div class="bar-progress">
-                                        <div id="bar2" class="barfiller">
-                                            <div class="tipWrap">
-                                                <span class="tip"></span>
-                                            </div>
-                                            <span class="fill" data-percentage="25"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- / progress -->
-                                <div class="prices d-flex justify-content-between">
-                                    <p>Raised:<span> $20,000</span></p>
-                                    <p>Goal:<span> $35,000</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-cases mb-40">
-                            <div class="cases-img">
-                                <img src="{{asset('web-assets')}}/assets/img/gallery/case3.png" alt="">
-                            </div>
-                            <div class="cases-caption">
-                                <h3><a href="#">Supply Drinking Water For  The People</a></h3>
-                                <!-- Progress Bar -->
-                                <div class="single-skill mb-15">
-                                    <div class="bar-progress">
-                                        <div id="bar3" class="barfiller">
-                                            <div class="tipWrap">
-                                                <span class="tip"></span>
-                                            </div>
-                                            <span class="fill" data-percentage="50"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- / progress -->
-                                <div class="prices d-flex justify-content-between">
-                                    <p>Raised:<span> $20,000</span></p>
-                                    <p>Goal:<span> $35,000</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
+
             </div>
         </div>
         <!-- Our Cases End -->
@@ -233,8 +170,8 @@
                     <div class="col-xl-7 col-lg-9 col-md-10 col-sm-12">
                         <!-- Section Tittle -->
                         <div class="section-tittle text-center mb-80">
-                            <span>What we are boing</span>
-                            <h2>We arrange many social events for charity donations</h2>
+                            <span>What we are doing</span>
+                            <h2>We arrange many social events for social developments</h2>
                         </div>
                     </div>
                 </div>
@@ -242,57 +179,24 @@
                     <div class="col-lg-9 col-md-12">
                         <!-- single-job-content -->
                         <div class="single-job-items mb-30">
+                            @foreach($upcomingevents as $upcomingevent)
                             <div class="job-items">
                                 <div class="company-img">
-                                    <a href="#"><img src="{{asset('web-assets')}}/assets/img/gallery/socialEvents1.png" alt=""></a>
+                                    <a href="#"><img src="{{asset($upcomingevent->image)}}" alt=""></a>
                                 </div>
                                 <div class="job-tittle">
-                                    <a href="#"><h4>Donation is Hope</h4></a>
+                                    <a href="#"><h4>{{$upcomingevent->title}}</h4></a>
                                     <ul>
-                                        <li><i class="far fa-clock"></i>8:30 - 9:30am</li>
-                                        <li><i class="fas fa-sort-amount-down"></i>18.01.2021</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
+                                        <li><i class="far fa-clock"></i>{{$upcomingevent->time}}</li>
+                                        <li><i class="fas fa-sort-amount-down"></i>{{$upcomingevent->date}}</li>
+                                        <li><i class="fas fa-map-marker-alt"></i>{{$upcomingevent->location}}</li>
                                     </ul>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
                     </div>
-                    <div class="col-lg-9 col-md-12">
-                        <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                    <a href="#"><img src="{{asset('web-assets')}}/assets/img/gallery/socialEvents2.png" alt=""></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <a href="#"><h4>A hand for Children</h4></a>
-                                    <ul>
-                                        <li><i class="far fa-clock"></i>8:30 - 9:30am</li>
-                                        <li><i class="fas fa-sort-amount-down"></i>18.01.2021</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9 col-md-12">
-                        <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                    <a href="#"><img src="{{asset('web-assets')}}/assets/img/gallery/socialEvents3.png" alt=""></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <a href="#"><h4>Help for Children</h4></a>
-                                    <ul>
-                                        <li><i class="far fa-clock"></i>8:30 - 9:30am</li>
-                                        <li><i class="fas fa-sort-amount-down"></i>18.01.2021</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </section>

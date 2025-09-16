@@ -41,7 +41,7 @@
                                     <a href="{{route('post.status',['id'=>$category->id])}}" class="btn btn-indigo btn-sm">Active</a>
                                 @endif
 
-                                <form action="{{route('post.delete')}}" method="post">
+                                <form action="{{route('post.delete',['id'=>$category->id])}}" method="post">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$category->id}}">
                                     <button href="" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure delete this?')">Delete</button>

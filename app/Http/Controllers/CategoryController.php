@@ -54,5 +54,12 @@ class CategoryController extends Controller
         self::$category->delete();
         return back()->with('massage','Post Delete Successfully');
     }
+    public function ShowCategory()
+    {
+        return view('home.web-home',[
+            'categories'=> Category::all()
+        ]);
+
+    }
 
 }
