@@ -205,6 +205,43 @@
                         </li>
                     </ul>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link justify-content-between has-arrow" href="javascript:void(0)" aria-expanded="false">
+                        <div class="d-flex align-items-center gap-3">
+                    <span class="d-flex">
+                      <i class="ti ti-message-dots"></i>
+                    </span>
+                            <span class="hide-menu">Comment</span>
+                        </div>
+
+                    </a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link justify-content-between"
+                               href="{{route('comment.mange')}}">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Comment Manage</span>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link justify-content-between"
+                               href="#">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Blog Details</span>
+                                </div>
+
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
                 <li class="sidebar-item">
                     <a class="sidebar-link justify-content-between has-arrow" href="javascript:void(0)" aria-expanded="false">
@@ -230,7 +267,7 @@
                                 </a>
                             </li>
                     </ul>
-                </li>
+
 
                 <li>
                     <span class="sidebar-divider lg"></span>

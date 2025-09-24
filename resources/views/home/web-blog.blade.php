@@ -28,15 +28,15 @@
                                 <div class="blog_item_img">
                                     <img class="card-img rounded-0" src="{{asset($blog->image)}}" alt="">
                                     <a href="#" class="blog_item_date">
-                                        <h3>15</h3>
-                                        <p>Jan</p>
+                                        <h3>{{$blog->date}}</h3>
+{{--                                        <p>Jan</p>--}}
                                     </a>
                                 </div>
                                 <div class="blog_details">
                                     <a class="d-inline-block" href="{{route('blog_details',['id'=>$blog->id])}}">
                                         <h2 class="blog-head" style="color: #2d2d2d;">{{$blog->title}}</h2>
                                     </a>
-                                    <p>{{$blog->content}}</p>
+{{--                                    <p>{{$blog->content}}</p>--}}
                                     <ul class="blog-info-link">
                                         <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
                                         <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>

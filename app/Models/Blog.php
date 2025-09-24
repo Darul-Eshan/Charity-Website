@@ -8,7 +8,7 @@ use App\Http\Controllers\WebController;
 
 class Blog extends Model
 {
-    private static $blogs,$imgUrl,$image,$imageNewName,$directory,$blog ;
+    private static $blogs,$imgUrl,$image,$imageNewName,$directory,$blog, $comment ;
     public static function blogPost($request)
     {
         $request->validate([
@@ -55,4 +55,15 @@ self::$image->move(self::$directory, self::$imageNewName);
       self::$blog->save();
 
     }
+    protected $fillable = ['title','content','date','category_id','image'];
+
+
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'blog_id');
+    }
+
+
+
 }
