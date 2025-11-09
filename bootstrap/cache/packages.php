@@ -1,16 +1,9 @@
 <?php return array (
-  'laravel/fortify' => 
+  'laravel/breeze' => 
   array (
     'providers' => 
     array (
-      0 => 'Laravel\\Fortify\\FortifyServiceProvider',
-    ),
-  ),
-  'laravel/jetstream' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Laravel\\Jetstream\\JetstreamServiceProvider',
+      0 => 'Laravel\\Breeze\\BreezeServiceProvider',
     ),
   ),
   'laravel/pail' => 
@@ -39,6 +32,24 @@
     'providers' => 
     array (
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
+    ),
+  ),
+  'livewire/livewire' => 
+  array (
+    'aliases' => 
+    array (
+      'Livewire' => 'Livewire\\Livewire',
+    ),
+    'providers' => 
+    array (
+      0 => 'Livewire\\LivewireServiceProvider',
+    ),
+  ),
+  'livewire/volt' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Livewire\\Volt\\VoltServiceProvider',
     ),
   ),
   'nesbot/carbon' => 
